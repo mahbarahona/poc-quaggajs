@@ -8,7 +8,7 @@ $(function() {
         devices.forEach(function(device) {
                 // alert('device - ' + JSON.stringify(device));
                 if ( device.kind === 'videoinput' && device.label.match(/back/) != null ) {
-                    alert('Back found! - ' + device.label);
+                    // alert('Back found! - ' + device.label);
                     backCameraList.push(
                         {
                          'deviceLabel': device.label,
@@ -83,7 +83,7 @@ $(function() {
             return Quagga.CameraAccess.enumerateVideoDevices()
             .then(function(devices) {
 
-                alert('Devices\n',devices)
+                alert(devices)
 
                 function pruneText(text) {
                     return text.length > 30 ? text.substr(0, 30) : text;
@@ -96,16 +96,16 @@ $(function() {
                  
 
 
-
+                let backCameraList = []
                 devices.forEach(function(device) {
 
                     if ( device.kind === 'videoinput' && device.label.match(/back/) != null ) {
                     // alert('Back found! - ' + device.label);
-                    // backCameraList.push(
-                    //     {
-                    //      'deviceLabel': device.label,
-                    //      'deviceId': device.deviceId
-                    //     });  
+                    backCameraList.push(
+                        {
+                         'deviceLabel': device.label,
+                         'deviceId': device.deviceId
+                        });  
                         var $option = document.createElement("option");
                         $option.value = device.deviceId || device.id;
                         $option.appendChild(document.createTextNode(pruneText(device.label || device.deviceId || device.id)));
@@ -115,8 +115,10 @@ $(function() {
                   
                 });
 
+                alert(JSON.stringify(backCameraList))
 
-                
+
+
             });
         },
         attachListeners: function() {
