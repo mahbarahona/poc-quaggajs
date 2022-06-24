@@ -4,7 +4,7 @@ $(function() {
     navigator.mediaDevices
     .enumerateDevices()
     .then(function(devices) {
-        alert(devices)
+        // alert()
         devices.forEach(function(device) {
                 // alert('device - ' + JSON.stringify(device));
                 if ( device.kind === 'videoinput' && device.label.match(/back/) != null ) {
@@ -117,13 +117,9 @@ $(function() {
 
                 const cameras = backCameraList.length
 
-                
-                if( cameras > 1){
-                    alert('last Cam', JSON.stringify(backCameraList[cameras-1]))
-                }
-                else{
-                    //
-                }
+                alert(`cameras: ${cameras}`)
+                alert(`back-cameras: ${backCameraList}`)
+
 
 
 
