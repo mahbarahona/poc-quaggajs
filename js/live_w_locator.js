@@ -112,8 +112,9 @@ $(function() {
                     $option.appendChild(document.createTextNode(pruneText(device.label || device.deviceId || device.id)));
 
             
-                    $option.selected = streamLabel === device.label;
+                    // $option.selected = streamLabel === device.label;
                     $deviceSelection.appendChild($option);
+
                     }
                   
                 });
@@ -245,8 +246,8 @@ $(function() {
             inputStream: {
                 type : "LiveStream",
                 constraints: {
-                    width: {min: 320},
-                    height: {min: 320},
+                    width: {min: 640},
+                    height: {min: 400},
                     aspectRatio: {min: 1, max: 100},
                     facingMode: "environment" // or user
                 }
