@@ -107,6 +107,25 @@ $(function() {
                          'deviceId': device.deviceId
                         });  
                         }
+                  
+                });
+
+
+
+
+                if(backCameraList.length > 0){
+                    backCameraList.forEach( cam =>{
+                        var $option = document.createElement("option");
+                        $option.value = cam.deviceId || cam.id;
+                        $option.appendChild(document.createTextNode(pruneText(cam.label || cam.deviceId || cam.id)));
+
+                
+                        // $option.selected = streamLabel === device.label;
+                        $deviceSelection.appendChild($option);
+                    })
+                }else{
+
+                     devices.forEach(function(device) {
                     var $option = document.createElement("option");
                     $option.value = device.deviceId || device.id;
                     $option.appendChild(document.createTextNode(pruneText(device.label || device.deviceId || device.id)));
@@ -114,14 +133,13 @@ $(function() {
             
                     // $option.selected = streamLabel === device.label;
                     $deviceSelection.appendChild($option);
+                     })
+                }
+              
 
-                   
-                  
-                });
 
-                const backCameras = backCameraList.length
-                const lastCamera = JSON.stringify(backCameraList[backCameras -1])
-
+                // const backCameras = backCameraList.length
+                // const lastCamera = JSON.stringify(backCameraList[backCameras -1])
                 // alert(`back cameras: ${backCameras}`)
                 // alert(`back-cameras: ${backCameraList}`)
                 // alert(`last back-cameras: ${lastCamera}`)
@@ -256,7 +274,7 @@ $(function() {
                 patchSize: "medium",
                 halfSample: true
             },
-            numOfWorkers: 2,
+            numOfWorkers: 4,
             frequency: 10,
             decoder: {
                 readers : [{
