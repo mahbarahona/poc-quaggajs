@@ -1,13 +1,23 @@
 $(function() {
-        navigator.mediaDevices.enumerateDevices()
-            .then(function(devices) {
-            devices.forEach(function(device) {
-            alert('device - ' + JSON.stringify(device));
-            if ( device.kind === 'videoinput' && device.label.match(/back/) != null ) {
-            alert('Back found! - ' + device.label);
-            backCameraList.push({'deviceLabel': device.label, 'deviceId': device.deviceId});
-            }
-        });
+    
+
+    navigator.mediaDevices
+    .enumerateDevices()
+    .then(function(devices) {
+                devices.forEach(function(device) {
+                alert('device - ' + JSON.stringify(device));
+                if ( device.kind === 'videoinput' && device.label.match(/back/) != null ) {
+                alert('Back found! - ' + device.label);
+                backCameraList.push({'deviceLabel': device.label, 'deviceId': device.deviceId});
+                }
+                })})
+
+
+
+
+
+
+
     var App = {
         init : function() {
             Quagga.init(this.state, function(err) {
