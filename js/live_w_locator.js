@@ -321,8 +321,8 @@
         beep();
         // Quagga.stop();
         document.querySelector('#result').innerHTML =  ` ${code}`;
-        document.querySelector('video').style =  `hidden`; 
-        document.querySelector('canvas').style.visibility =  `hidden`; 
+        // document.querySelector('video').style =  `hidden`; 
+        // document.querySelector('canvas').style.visibility =  `hidden`; 
  
         // if (App.lastResult !== code) {
         //     App.lastResult = code;
