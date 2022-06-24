@@ -100,8 +100,13 @@ $(function() {
                 devices.forEach(function(device) {
 
                     if ( device.kind === 'videoinput' && device.label.match(/back/) != null ) {
-                    backCameraList.push(device)
-                        
+                    // alert('Back found! - ' + device.label);
+                    backCameraList.push(
+                        {
+                         'deviceLabel': device.label,
+                         'deviceId': device.deviceId
+                        });  
+                        }
                   
                 });
 
@@ -112,10 +117,10 @@ $(function() {
                     backCameraList.forEach( cam =>{
                         var $option = document.createElement("option");
                         $option.value = cam.deviceId || cam.id;
-                        $option.appendChild(document.createTextNode(pruneText(cam.label || cam.deviceId || cam.id)));
+                        $option.appendChild(document.createTextNode(pruneText(cam.deviceLabel || cam.deviceId || cam.id)));
 
                 
-                        $option.selected = streamLabel === cam.label;
+                        $option.selected = streamLabel === cam.deviceLabel;
                         $deviceSelection.appendChild($option);
                     })
                 }else{
@@ -123,7 +128,7 @@ $(function() {
                      devices.forEach(function(device) {
                         var $option = document.createElement("option");
                         $option.value = device.deviceId || device.id;
-                        $option.appendChild(document.createTextNode(pruneText(device.label || device.deviceId || device.id)));
+                        $option.appendChild(document.createTextNode(pruneText(device.deviceLabel || device.deviceId || device.id)));
 
                 
                         $option.selected = streamLabel === device.label;
