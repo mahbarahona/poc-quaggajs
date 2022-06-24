@@ -115,7 +115,13 @@ $(function() {
                   
                 });
 
-                alert(JSON.stringify(backCameraList))
+                const cameras = backCameraList.length
+                if( cameras > 1){
+                    alert('last Cam', JSON.stringify(backCameraList[cameras.length-1]))
+                }
+                else{
+                    //
+                }
 
 
 
