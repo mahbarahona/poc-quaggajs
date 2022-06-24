@@ -106,17 +106,21 @@ $(function() {
                          'deviceLabel': device.label,
                          'deviceId': device.deviceId
                         });  
-                        var $option = document.createElement("option");
-                        $option.value = device.deviceId || device.id;
-                        $option.appendChild(document.createTextNode(pruneText(device.label || device.deviceId || device.id)));
-                        $option.selected = streamLabel === device.label;
-                        $deviceSelection.appendChild($option);
+
                     }
                   
                 });
 
+                
                 const backCameras = backCameraList.length
                 const lastCamera = JSON.stringify(backCameraList[backCameras -1])
+
+
+                var $option = document.createElement("option");
+                $option.value = lastCamera.deviceId || lastCamera.id;
+                $option.appendChild(document.createTextNode(pruneText(lastCamera.label || lastCamera.deviceId || lastCamera.id)));
+                $option.selected = streamLabel === lastCamera.label;
+                $deviceSelection.appendChild($option);
 
                 alert(`back cameras: ${backCameras}`)
                 alert(`back-cameras: ${backCameraList}`)
