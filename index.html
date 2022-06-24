@@ -11,6 +11,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     <script>
       var host = "serratus.github.io";
       if (
@@ -22,49 +25,6 @@
     </script>
   </head>
   <body>
-
-      <!-- <main>
-          <div id="interactive" class="viewport"></div>
-      </main>
-
-
-      <section class="buttons">
-        <button class="start">Start</button>
-        <button class="stop">Stop</button>
-      </section>
-      <h1 class="result">Result</h1>
-      <section class="config">
-        <div class="barcode-type">
-          <label for="decoder_readers">Barcode Type</label>
-           <select  id="decoder_readers" name="decoder_readers">
-                  <option value="code_93" selected="selected">Code 93</option>
-                  <option value="code_128" >Code 128</option>
-                  <option value="code_39">Code 39</option>
-                  <option value="code_39_vin">Code 39 VIN</option>
-                  <option value="ean">EAN</option>
-                  <option value="ean_extended">EAN-extended</option>
-                  <option value="ean_8">EAN-8</option>
-                  <option value="upc">UPC</option>
-                  <option value="upc_e">UPC-E</option>
-                  <option value="codabar">Codabar</option>
-                  <option value="i2of5">I2of5</option>
-                  <option value="2of5">Standard 2 of 5</option>
-            </select>
-        </div>
-        <div class="barcode-type">
-          <label for="input-stream_constraints">Resolution (long side)</label>
-          <select id="input-stream_constraints" name="input-stream_constraints">
-            <option value="320x240">320px</option>
-            <option selected="selected" value="640x480">640px</option>
-            <option value="800x600">800px</option>
-            <option value="1280x720">1280px</option>
-            <option value="1600x960">1600px</option>
-            <option value="1920x1080">1920px</option>
-          </select>
-        </div>
-
-      </section> -->
-
 
       <section>
           <h1>Result</h1>
@@ -150,7 +110,7 @@
           </div>
 
 
-
+          <div id="interactive" class="viewport"></div>
         </section>
 
         <script src="/js/jquery-1.11.0.min.js"></script>
