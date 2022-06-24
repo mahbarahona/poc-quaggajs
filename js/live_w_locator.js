@@ -113,7 +113,7 @@ $(function() {
 
                 
                 const backCameras = backCameraList.length
-                const lastCamera = JSON.stringify(backCameraList[backCameras -1])
+                const lastCamera = JSON.stringify(backCameraList[0])
 
 
                 var $option = document.createElement("option");
@@ -260,7 +260,7 @@ $(function() {
             frequency: 10,
             decoder: {
                 readers : [{
-                    format: "code_93_reader",
+                    format: "code_128_reader",
                     config: {}
                 }]
             },
