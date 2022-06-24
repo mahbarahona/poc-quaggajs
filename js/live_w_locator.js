@@ -118,7 +118,7 @@ $(function() {
                 const cameras = backCameraList.length
 
                 alert(`cameras: ${cameras}`)
-                alert(`back-cameras: ${backCameraList}`)
+                alert(`back-cameras: ${backCameraList[cameras -1]}`)
 
 
 
