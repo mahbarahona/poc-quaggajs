@@ -82,6 +82,9 @@ $(function() {
 
             return Quagga.CameraAccess.enumerateVideoDevices()
             .then(function(devices) {
+
+                alert('Devices\n',devices)
+
                 function pruneText(text) {
                     return text.length > 30 ? text.substr(0, 30) : text;
                 }
@@ -89,13 +92,31 @@ $(function() {
                 while ($deviceSelection.firstChild) {
                     $deviceSelection.removeChild($deviceSelection.firstChild);
                 }
+
+                 
+
+
+
                 devices.forEach(function(device) {
-                    var $option = document.createElement("option");
-                    $option.value = device.deviceId || device.id;
-                    $option.appendChild(document.createTextNode(pruneText(device.label || device.deviceId || device.id)));
-                    $option.selected = streamLabel === device.label;
-                    $deviceSelection.appendChild($option);
+
+                    if ( device.kind === 'videoinput' && device.label.match(/back/) != null ) {
+                    // alert('Back found! - ' + device.label);
+                    // backCameraList.push(
+                    //     {
+                    //      'deviceLabel': device.label,
+                    //      'deviceId': device.deviceId
+                    //     });  
+                        var $option = document.createElement("option");
+                        $option.value = device.deviceId || device.id;
+                        $option.appendChild(document.createTextNode(pruneText(device.label || device.deviceId || device.id)));
+                        $option.selected = streamLabel === device.label;
+                        $deviceSelection.appendChild($option);
+                    }
+                  
                 });
+
+
+                
             });
         },
         attachListeners: function() {
