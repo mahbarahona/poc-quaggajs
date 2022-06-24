@@ -1,16 +1,23 @@
 $(function() {
-    
+    let backCameraList = []
 
     navigator.mediaDevices
     .enumerateDevices()
     .then(function(devices) {
-                devices.forEach(function(device) {
-                alert('device - ' + JSON.stringify(device));
+        devices.forEach(function(device) {
+                // alert('device - ' + JSON.stringify(device));
                 if ( device.kind === 'videoinput' && device.label.match(/back/) != null ) {
-                alert('Back found! - ' + device.label);
-                backCameraList.push({'deviceLabel': device.label, 'deviceId': device.deviceId});
+                    alert('Back found! - ' + device.label);
+                    backCameraList.push(
+                        {
+                         'deviceLabel': device.label,
+                         'deviceId': device.deviceId
+                        });   
                 }
-                })})
+
+        })
+        const devices = document.querySelector('#devices').innerHTML = JSON.stringify(backCameraList)
+    });
 
 
 
@@ -210,8 +217,8 @@ $(function() {
             inputStream: {
                 type : "LiveStream",
                 constraints: {
-                    width: {min: 640},
-                    height: {min: 480},
+                    width: {min: 320},
+                    height: {min: 320},
                     aspectRatio: {min: 1, max: 100},
                     facingMode: "environment" // or user
                 }
@@ -224,7 +231,7 @@ $(function() {
             frequency: 10,
             decoder: {
                 readers : [{
-                    format: "code_128_reader",
+                    format: "code_93_reader",
                     config: {}
                 }]
             },
