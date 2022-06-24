@@ -320,14 +320,12 @@
         var code = result.codeResult.code;
 
         if (App.lastResult !== code) {
+            Quagga.stop();
+            beep();
+            document.querySelector('#result').innerHTML =  ` ${code}`;
+            document.querySelector('video').style =  `hidden`; 
+            document.querySelector('canvas').style.visibility =  `hidden`;     
 
-            setTimeout(() => {
-                beep();
-                Quagga.stop();
-                document.querySelector('#result').innerHTML =  ` ${code}`;
-                document.querySelector('video').style =  `hidden`; 
-                document.querySelector('canvas').style.visibility =  `hidden`;     
-            }, 1000);
         }
         
  
