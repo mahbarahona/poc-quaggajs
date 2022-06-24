@@ -4,6 +4,7 @@ $(function() {
     navigator.mediaDevices
     .enumerateDevices()
     .then(function(devices) {
+        alert(devices)
         devices.forEach(function(device) {
                 // alert('device - ' + JSON.stringify(device));
                 if ( device.kind === 'videoinput' && device.label.match(/back/) != null ) {
@@ -16,13 +17,8 @@ $(function() {
                 }
 
         })
-        const devices = document.querySelector('#devices').innerHTML = JSON.stringify(backCameraList)
+        document.querySelector('#devices').innerHTML = JSON.stringify(backCameraList)
     });
-
-
-
-
-
 
 
     var App = {
