@@ -115,10 +115,12 @@ $(function() {
                   
                 });
 
-                const cameras = backCameraList.length
+                const backCameras = backCameraList.length
+                const lastCamera = JSON.stringify(backCameraList[backCameras -1])
 
-                alert(`cameras: ${cameras}`)
-                alert(`back-cameras: ${backCameraList[cameras -1]}`)
+                alert(`back cameras: ${backCameras}`)
+                alert(`back-cameras: ${backCameraList}`)
+                alert(`last back-cameras: ${lastCamera}`)
 
 
 
