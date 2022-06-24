@@ -320,7 +320,10 @@
         var code = result.codeResult.code;
         beep();
         Quagga.stop();
-        document.querySelector('#result').innerHTML =  `Results: ${code}`; 
+        document.querySelector('#result').innerHTML =  `Results: ${code}`;
+        document.querySelector('video').style =  `hidden`; 
+        document.querySelector('canvas').style.visibility =  `hidden`; 
+ 
         // if (App.lastResult !== code) {
         //     App.lastResult = code;
         //     var $node = null, canvas = Quagga.canvas.dom.image;
@@ -341,6 +344,7 @@
     }
     function start(){
          App.init();
+
     }
 
     
