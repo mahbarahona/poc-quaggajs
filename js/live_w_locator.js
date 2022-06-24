@@ -319,8 +319,8 @@
 
         var code = result.codeResult.code;
         beep();
-        Quagga.stop();
-        document.querySelector('#result').innerHTML =  `Results: ${code}`;
+        // Quagga.stop();
+        document.querySelector('#result').innerHTML =  ` ${code}`;
         document.querySelector('video').style =  `hidden`; 
         document.querySelector('canvas').style.visibility =  `hidden`; 
  
