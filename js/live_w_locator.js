@@ -314,21 +314,21 @@
 
     Quagga.onDetected(function(result) {
         var code = result.codeResult.code;
-
-        if (App.lastResult !== code) {
-            App.lastResult = code;
-            var $node = null, canvas = Quagga.canvas.dom.image;
+        beep();
+        Quagga.stop();
+        document.querySelector('#result').innerHTML =  `Results: ${code}`; 
+        // if (App.lastResult !== code) {
+        //     App.lastResult = code;
+        //     var $node = null, canvas = Quagga.canvas.dom.image;
 
             
-            // $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
-            // $node.find("h4.code").html('tag:'+code);
+        //     // $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
+        //     // $node.find("h4.code").html('tag:'+code);
             
-            // $node.find("img").attr("src", canvas.toDataURL());
-            // $("#result_strip ul.thumbnails").prepend($node);
-            beep();
-            Quagga.stop();
-            document.querySelector('#result').innerHTML =  `Results: ${code}`; 
-        }
+        //     // $node.find("img").attr("src", canvas.toDataURL());
+        //     // $("#result_strip ul.thumbnails").prepend($node);
+           
+        // }
     });
 
     function beep() {
