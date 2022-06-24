@@ -266,7 +266,6 @@
                 constraints: {
                     width: {min: 640},
                     height: {min: 400},
-                    aspectRatio: {min: 1, max: 100},
                     facingMode: "environment" // or user
                 }
             },
