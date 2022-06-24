@@ -79,11 +79,11 @@ $(function() {
         },
         initCameraSelection: function(){
             var streamLabel = Quagga.CameraAccess.getActiveStreamLabel();
-            alert(streamLabel)
+            // alert(streamLabel)
             return Quagga.CameraAccess.enumerateVideoDevices()
             .then(function(devices) {
 
-                alert(devices)
+                // alert(devices)
 
                 function pruneText(text) {
                     return text.length > 30 ? text.substr(0, 30) : text;
@@ -106,7 +106,7 @@ $(function() {
                          'deviceLabel': device.label,
                          'deviceId': device.deviceId
                         });  
-
+                        }
                     var $option = document.createElement("option");
                     $option.value = device.deviceId || device.id;
                     $option.appendChild(document.createTextNode(pruneText(device.label || device.deviceId || device.id)));
@@ -115,16 +115,16 @@ $(function() {
                     // $option.selected = streamLabel === device.label;
                     $deviceSelection.appendChild($option);
 
-                    }
+                   
                   
                 });
 
                 const backCameras = backCameraList.length
                 const lastCamera = JSON.stringify(backCameraList[backCameras -1])
 
-                alert(`back cameras: ${backCameras}`)
-                alert(`back-cameras: ${backCameraList}`)
-                alert(`last back-cameras: ${lastCamera}`)
+                // alert(`back cameras: ${backCameras}`)
+                // alert(`back-cameras: ${backCameraList}`)
+                // alert(`last back-cameras: ${lastCamera}`)
 
                 
 
