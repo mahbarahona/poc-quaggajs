@@ -315,11 +315,11 @@
     Quagga.onDetected(function(result) {
         var drawingCtx = Quagga.canvas.ctx.overlay, drawingCanvas = Quagga.canvas.dom.overlay;
 
-        drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
-
+        
         var code = result.codeResult.code;
-
+        
         if (App.lastResult !== code) {
+            drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
             Quagga.stop();
             beep();
             document.querySelector('#result').innerHTML =  ` ${code}`;
