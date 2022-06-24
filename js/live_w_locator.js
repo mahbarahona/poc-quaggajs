@@ -319,13 +319,16 @@
 
         var code = result.codeResult.code;
 
-        setTimeout(() => {
-            beep();
-            // Quagga.stop();
-            document.querySelector('#result').innerHTML =  ` ${code}`;
-            document.querySelector('video').style =  `hidden`; 
-            document.querySelector('canvas').style.visibility =  `hidden`;     
-        }, 1000);
+        if (App.lastResult !== code) {
+
+            setTimeout(() => {
+                beep();
+                Quagga.stop();
+                document.querySelector('#result').innerHTML =  ` ${code}`;
+                document.querySelector('video').style =  `hidden`; 
+                document.querySelector('canvas').style.visibility =  `hidden`;     
+            }, 1000);
+        }
         
  
         // if (App.lastResult !== code) {
