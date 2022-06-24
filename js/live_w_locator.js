@@ -120,7 +120,7 @@ $(function() {
                         $option.appendChild(document.createTextNode(pruneText(cam.deviceLabel || cam.deviceId || cam.id)));
 
                 
-                        // $option.selected = streamLabel === device.label;
+                        $option.selected = streamLabel === device.label;
                         $deviceSelection.appendChild($option);
                     })
                 }else{
@@ -131,7 +131,7 @@ $(function() {
                         $option.appendChild(document.createTextNode(pruneText(device.label || device.deviceId || device.id)));
 
                 
-                        // $option.selected = streamLabel === device.label;
+                        $option.selected = streamLabel === device.label;
                         $deviceSelection.appendChild($option);
                      })
                 }
