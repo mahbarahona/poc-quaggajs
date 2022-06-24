@@ -318,11 +318,15 @@
         drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
 
         var code = result.codeResult.code;
-        beep();
-        // Quagga.stop();
-        document.querySelector('#result').innerHTML =  ` ${code}`;
-        // document.querySelector('video').style =  `hidden`; 
-        // document.querySelector('canvas').style.visibility =  `hidden`; 
+
+        setTimeout(() => {
+            beep();
+            // Quagga.stop();
+            document.querySelector('#result').innerHTML =  ` ${code}`;
+            document.querySelector('video').style =  `hidden`; 
+            document.querySelector('canvas').style.visibility =  `hidden`;     
+        }, 1000);
+        
  
         // if (App.lastResult !== code) {
         //     App.lastResult = code;
