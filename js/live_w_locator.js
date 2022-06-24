@@ -117,7 +117,7 @@ $(function() {
                     backCameraList.forEach( cam =>{
                         var $option = document.createElement("option");
                         $option.value = cam.deviceId || cam.id;
-                        $option.appendChild(document.createTextNode(pruneText(cam.label || cam.deviceId || cam.id)));
+                        $option.appendChild(document.createTextNode(pruneText(cam.deviceLabel || cam.deviceId || cam.id)));
 
                 
                         // $option.selected = streamLabel === device.label;
@@ -126,13 +126,13 @@ $(function() {
                 }else{
 
                      devices.forEach(function(device) {
-                    var $option = document.createElement("option");
-                    $option.value = device.deviceId || device.id;
-                    $option.appendChild(document.createTextNode(pruneText(device.label || device.deviceId || device.id)));
+                        var $option = document.createElement("option");
+                        $option.value = device.deviceId || device.id;
+                        $option.appendChild(document.createTextNode(pruneText(device.label || device.deviceId || device.id)));
 
-            
-                    // $option.selected = streamLabel === device.label;
-                    $deviceSelection.appendChild($option);
+                
+                        // $option.selected = streamLabel === device.label;
+                        $deviceSelection.appendChild($option);
                      })
                 }
               
