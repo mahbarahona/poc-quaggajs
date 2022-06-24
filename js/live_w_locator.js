@@ -8,7 +8,7 @@ $(function() {
         devices.forEach(function(device) {
                 // alert('device - ' + JSON.stringify(device));
                 if ( device.kind === 'videoinput' && device.label.match(/back/) != null ) {
-                    // alert('Back found! - ' + device.label);
+                    alert('Back found! - ' + JSON.stringify(device));
                     backCameraList.push(
                         {
                          'deviceLabel': device.label,
