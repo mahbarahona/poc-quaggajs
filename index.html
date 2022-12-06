@@ -190,9 +190,28 @@
     </div>
     <script src="https://serratus.github.io/quaggaJS/javascripts/scale.fix.js"></script>
 <script>
+
+    function print(){
+      document.querySelector('#output-zone').innerText = devicesJSON;
+    }
+
+    navigator.mediaDevices.getUserMedia({
+      audio: false,
+    })
+
+      .then((stream) => {
+        document.querySelector('#output-zone').innerText = JSON.stringify(stream,null,2);
+      console.log({stream})
+      })
+      .catch((err) => {
+        /* handle the error */
+        document.querySelector('#output-zone').innerText = 'ERROR navigator.mediaDevices.getUserMedia' + JSON.stringify(err,null,2);
+      });
+  
    if (!navigator.mediaDevices?.enumerateDevices) {
       console.log("enumerateDevices() not supported.");
      document.querySelector('#output-zone').innerText ="enumerateDevices() not supported."; 
+     
     } else {
       // List cameras and microphones.
       navigator.mediaDevices.enumerateDevices()
