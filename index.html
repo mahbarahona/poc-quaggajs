@@ -11,6 +11,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
+    
+    
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -24,7 +26,24 @@
       }
     </script> -->
 
+    <script>
+        if (!navigator.mediaDevices?.enumerateDevices) {
+      console.log("enumerateDevices() not supported.");
+    } else {
+      // List cameras and microphones.
+      navigator.mediaDevices.enumerateDevices()
+        .then((devices) => {
 
+          devices.forEach((device) => {
+            console.log({device})
+            console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`);
+          });
+        })
+        .catch((err) => {
+          console.error(`${err.name}: ${err.message}`);
+        });
+}
+    </script>
     <style>
 
       body{
