@@ -27,16 +27,18 @@
     </script> -->
 
     <script>
+      let devicesJSON = '';
         if (!navigator.mediaDevices?.enumerateDevices) {
       console.log("enumerateDevices() not supported.");
     } else {
       // List cameras and microphones.
       navigator.mediaDevices.enumerateDevices()
         .then((devices) => {
-
+          const devicesJSON =  JSON.stringify(devices, null, 2); 
+        
           devices.forEach((device) => {
             console.log({device})
-            console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`);
+            //console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`);
           });
         })
         .catch((err) => {
