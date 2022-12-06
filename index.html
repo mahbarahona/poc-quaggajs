@@ -203,7 +203,7 @@
             console.log({device})
             //console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`);
           });
-         document.querySelector('#output-zone').innerText = deviceJSON;
+         document.querySelector('#output-zone').innerText = devicesJSON;
         })
         .catch((err) => {
           console.error(`${err.name}: ${err.message}`);
