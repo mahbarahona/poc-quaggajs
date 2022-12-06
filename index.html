@@ -26,26 +26,7 @@
       }
     </script> -->
 
-    <script>
-      let devicesJSON = '';
-        if (!navigator.mediaDevices?.enumerateDevices) {
-      console.log("enumerateDevices() not supported.");
-    } else {
-      // List cameras and microphones.
-      navigator.mediaDevices.enumerateDevices()
-        .then((devices) => {
-          const devicesJSON =  JSON.stringify(devices, null, 2); 
-        
-          devices.forEach((device) => {
-            console.log({device})
-            //console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`);
-          });
-        })
-        .catch((err) => {
-          console.error(`${err.name}: ${err.message}`);
-        });
-}
-    </script>
+   
     <style>
 
       body{
@@ -194,7 +175,8 @@
               </label> -->
             </fieldset>
           </div>
-
+      
+        <pre id="output-zone"></pre>
 
         </section>
 
@@ -207,5 +189,26 @@
 
     </div>
     <script src="https://serratus.github.io/quaggaJS/javascripts/scale.fix.js"></script>
+<script>
+   if (!navigator.mediaDevices?.enumerateDevices) {
+      console.log("enumerateDevices() not supported.");
+     document.querySelector('#output-zone').innerText ="enumerateDevices() not supported."; 
+    } else {
+      // List cameras and microphones.
+      navigator.mediaDevices.enumerateDevices()
+        .then((devices) => {
+          const devicesJSON =  JSON.stringify(devices, null, 2); 
+          console.log({devices});
+          devices.forEach((device) => {
+            console.log({device})
+            //console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`);
+          });
+         document.querySelector('#output-zone').innerText = deviceJSON;
+        })
+        .catch((err) => {
+          console.error(`${err.name}: ${err.message}`);
+        });
+}
+    </script>
   </body>
 </html>
